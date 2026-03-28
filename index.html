@@ -20,7 +20,7 @@
 
     .hero {
       text-align: center;
-      padding: 72px 20px 48px;
+      padding: 50px 20px 48px;
       background: linear-gradient(135deg, #e0e7ff, #fdf2f8);
     }
 
@@ -60,16 +60,32 @@
 
     .tiles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: 1fr;      
       gap: 20px;
+      padding: 10px;
     }
 
+    @media (min-width: 768px) {
+      .container {
+        width: 750px;
+      }
+      .tiles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;      
+        gap: 20px;
+      }
+    }
+
+
     .tile {
+      display: block;
       background: white;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
     }
 
     .tile:hover {
@@ -79,9 +95,10 @@
 
     .tile img {
       width: 100%;
-      height: 160px;
+      height: auto;
       object-fit: cover;
       display: block;
+      background: #e5e7eb;
     }
 
     .tile-content {
@@ -98,6 +115,13 @@
       font-size: 0.95rem;
     }
 
+    .status {
+      text-align: center;
+      color: #6b7280;
+      padding: 20px;
+      font-size: 1rem;
+    }
+
     footer {
       text-align: center;
       padding: 28px 20px 40px;
@@ -110,51 +134,79 @@
   <header class="hero">
     <h1>Libros de Salud</h1>
     <p>Recursos, materiales, y lecturas para apoyar la educación y el bienestar de la comunidad.</p>
-    <a href="#features">Ver libros</a>
   </header>
 
   <main>
     <section class="section" id="features">
-      <h2>Colección destacada</h2>
-      <div class="tiles">
-        <article class="tile">
-          <img src="https://picsum.photos/400/300?random=1" alt="Random scenic image 1" />
-          <div class="tile-content">
-            <h3>Salud Comunitaria</h3>
-            <p>Materiales pensados para fortalecer conocimientos básicos de salud en la comunidad.</p>
-          </div>
-        </article>
-
-        <article class="tile">
-          <img src="https://picsum.photos/400/300?random=2" alt="Random scenic image 2" />
-          <div class="tile-content">
-            <h3>Aprendizaje Accesible</h3>
-            <p>Contenido claro y visual para que más personas puedan aprender con facilidad.</p>
-          </div>
-        </article>
-
-        <article class="tile">
-          <img src="https://picsum.photos/400/300?random=3" alt="Random scenic image 3" />
-          <div class="tile-content">
-            <h3>Recursos Educativos</h3>
-            <p>Libros y guías útiles para docentes, promotores de salud, y familias.</p>
-          </div>
-        </article>
-
-        <article class="tile">
-          <img src="https://picsum.photos/400/300?random=4" alt="Random scenic image 4" />
-          <div class="tile-content">
-            <h3>Impacto Local</h3>
-            <p>Una pequeña biblioteca para compartir conocimiento práctico donde más se necesita.</p>
-          </div>
-        </article>
-      </div>
+      <div id="status" class="status">Cargando libros...</div>
+      <div class="tiles" id="tiles"></div>
     </section>
   </main>
 
   <footer>
     © 2026 Libros de Salud.
   </footer>
+
+  <script>
+  function createBookTile(book) {
+    const link = document.createElement('a');
+    link.className = 'tile';
+    link.href = book.link;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+
+    const img = document.createElement('img');
+    img.src = book.image;
+    img.alt = `Portada de ${book.title}`;
+
+    const content = document.createElement('div');
+    content.className = 'tile-content';
+
+    const title = document.createElement('h3');
+    title.textContent = book.title;
+
+    const desc = document.createElement('p');
+    desc.textContent = 'Haz clic para abrir este libro.';
+
+    content.appendChild(title);
+    content.appendChild(desc);
+
+    link.appendChild(img);
+    link.appendChild(content);
+
+    return link;
+  }
+
+  async function loadBooks() {
+    const tilesContainer = document.getElementById('tiles');
+    const status = document.getElementById('status');
+
+    try {
+      const response = await fetch('./books.json');
+      if (!response.ok) {
+        throw new Error('No se pudo cargar books.json');
+      }
+
+      const books = await response.json();
+
+      if (!Array.isArray(books) || books.length === 0) {
+        status.textContent = 'No hay libros para mostrar.';
+        return;
+      }
+
+      status.style.display = 'none';
+      tilesContainer.innerHTML = '';
+
+      for (const book of books) {
+        tilesContainer.appendChild(createBookTile(book));
+      }
+    } catch (error) {
+      status.textContent = 'Hubo un problema cargando los libros.';
+      console.error(error);
+    }
+  }
+
+  loadBooks();
+</script>
 </body>
 </html>
-
