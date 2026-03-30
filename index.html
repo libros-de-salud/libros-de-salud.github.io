@@ -152,7 +152,6 @@
     const link = document.createElement('a');
     link.className = 'tile';
     link.href = book.link;
-    link.target = '_blank';
     link.rel = 'noopener noreferrer';
 
     const img = document.createElement('img');
@@ -166,7 +165,7 @@
     title.textContent = book.title;
 
     const desc = document.createElement('p');
-    desc.textContent = 'Haz clic para abrir este libro.';
+    desc.textContent = 'Haz clic para descargar este libro.';
 
     content.appendChild(title);
     content.appendChild(desc);
