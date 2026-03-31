@@ -74,7 +74,7 @@ The process of adding new books for this website involves generating the appropr
     {"title": "prev_entry title", "link": "prev_entry link", "link": "prev_entry link", "image": "prev_entry image"}, 
     {"title": "prev_entry title", "link": "prev_entry link", "link": "prev_entry link", "image": "prev_entry image"}, 
     {"title": "prev_entry title", "link": "prev_entry link", "link": "prev_entry link", "image": "prev_entry image"},
-    {"title": "The Adventures of Whatever You Want", "link": "https://drive.google.com/uc?export=download&id=1uDMr4_fszpSzWJH9z51UABHR0z64RniX", "image": "https://drive.google.com/thumbnail?id=1rcOHuu7J2JEUktyOEFnBZAGCzkGtyR-F&sz=w1000"},
+    {"title": "The Adventures of Whatever You Want", "link": "https://drive.google.com/uc?export=download&id=1uDMr4_fszpSzWJH9z51UABHR0z64RniX", "image": "https://drive.google.com/thumbnail?id=1rcOHuu7J2JEUktyOEFnBZAGCzkGtyR-F&sz=w1000"}
 ]
 ```
 6. I click "Commit Changes" (you can put a descriptive message of what you did if it asks, use default settings in form)
