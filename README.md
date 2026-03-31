@@ -79,4 +79,4 @@ The process of adding new books for this website involves generating the appropr
 ```
 6. I click "Commit Changes" (you can put a descriptive message of what you did if it asks, use default settings in form)
 7. I wait about 1-2 minutes
-7. I libros-de-salud.github.io and see my changes (perhaps in an incognito browser)
+7. I visit libros-de-salud.github.io and see my changes (perhaps in an incognito browser)
