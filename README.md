@@ -30,7 +30,7 @@ The process of adding new books for this website involves generating the appropr
     .
     .
     {"title": "prev_entry title", "link": "prev_entry link", "link": "prev_entry link", "image": "prev_entry image"}, 
-    {"title": "YOUR TITLE", "link": "PDF_LINK", "image": "PHOTO_LINK"}, 
+    {"title": "YOUR TITLE", "link": "PDF_LINK", "image": "PHOTO_LINK"}
 ]
 ```
 5. Click "Commit Changes"
