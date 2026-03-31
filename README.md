@@ -33,6 +33,7 @@ The process of adding new books for this website involves generating the appropr
     {"title": "YOUR TITLE", "link": "PDF_LINK", "image": "PHOTO_LINK"}
 ]
 ```
+#### PRO TIP: You can use https://jsonlint.com/ to verify that the JSON file is valid after your changes. 
 5. Click "Commit Changes"
 6. Wait a minute or two
 7. Visit libros-de-salud.github.io to see your changes. You might need to open in a incognito browser if you're device has cached the page
@@ -77,6 +78,8 @@ The process of adding new books for this website involves generating the appropr
     {"title": "The Adventures of Whatever You Want", "link": "https://drive.google.com/uc?export=download&id=1uDMr4_fszpSzWJH9z51UABHR0z64RniX", "image": "https://drive.google.com/thumbnail?id=1rcOHuu7J2JEUktyOEFnBZAGCzkGtyR-F&sz=w1000"}
 ]
 ```
+#### PRO TIP: You can use https://jsonlint.com/ to verify that the JSON file is valid after your changes. 
+
 6. I click "Commit Changes" (you can put a descriptive message of what you did if it asks, use default settings in form)
 7. I wait about 1-2 minutes
 7. I visit libros-de-salud.github.io and see my changes (perhaps in an incognito browser)
